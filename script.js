@@ -1,26 +1,25 @@
-const counters = document.querySelectorAll('.countNumber');
+const counters = document.querySelectorAll(".countNumber");
 
-counters.forEach((count)=> {
-    // console.log(count);
-    count.innerHTML = 0;
+counters.forEach((count) => {
+  // console.log(count);
+  count.innerHTML = 0;
 
-    const updatedCount = ()=>{
-        const targetCount = +count.getAttribute('data-target');
-        // console.log(targetCount);
-    
-        const startValue = Number(count.innerHTML);
+  const updatedCount = () => {
+    const targetCount = +count.getAttribute("data-target");
+    // console.log(targetCount);
 
-        const incrValue = targetCount / 100;
+    const startValue = Number(count.innerHTML);
 
-        if(targetCount > startValue) {
-            count.innerHTML = `${Math.round(startValue + incrValue)}`;
-        }
+    const incrValue = targetCount / 100;
 
-            setTimeout(updatedCount, 10);
-
-
+    if (targetCount > startValue) {
+      count.innerHTML = `${Math.round(startValue + incrValue)}`;
+    }else{
+        count.innerHTML = targetCount;
     }
 
-    updatedCount();
-})
+    setTimeout(updatedCount, 10);
+  };
 
+  updatedCount();
+});
